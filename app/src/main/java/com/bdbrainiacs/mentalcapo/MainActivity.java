@@ -26,11 +26,10 @@ public class MainActivity extends Activity {
         Button mDoMagicButton = (Button) findViewById(R.id.button);
         mDoMagicButton.setOnClickListener(buttonClickListener);
 
-        // Spinner element astea se definesc ca variabile globale. (pe viitor)
         mSpinner1 = (Spinner) findViewById(R.id.keys_spinner_1);
         mSpinner2 = (Spinner) findViewById(R.id.keys_spinner_2);
 
-        // Spinner Drop down elements
+        // Spinner Drop down elements with major keys (for now)
         List<String> categories = new ArrayList<String>();
         categories.add("A");
         categories.add("A#");
@@ -59,11 +58,16 @@ public class MainActivity extends Activity {
     private View.OnClickListener buttonClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            //init imageviews
             ImageView img1 = (ImageView) findViewById(R.id.key1);
             ImageView img2 = (ImageView) findViewById(R.id.key2);
 
+            //get spinners selected values
+
             String spinner1Value = mSpinner1.getSelectedItem().toString();
             String spinner2Value = mSpinner2.getSelectedItem().toString();
+
+            //show the images acoording to what the user selected
 
             switch (spinner1Value) {
                 case "A":

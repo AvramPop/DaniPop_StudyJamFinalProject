@@ -10,6 +10,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.bdbrainiacs.mentalcapo.MainActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="Just choose 2 keys and this little guy will do the rest ;)" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="horizontal"
@@ -17,6 +23,7 @@
 
         <Spinner
             android:id="@+id/keys_spinner_1"
+
             android:text="Key 1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
