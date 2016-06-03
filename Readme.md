@@ -1,0 +1,1 @@
+Mental Capo is an Android application designed to help guitar/ piano players to transpose songs in different keys. Just choose the key your song is written in, the key you want to sing it in, and Magic! 

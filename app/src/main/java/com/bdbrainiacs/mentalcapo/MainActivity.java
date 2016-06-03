@@ -6,28 +6,34 @@ import java.util.List;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.AdapterView.OnItemSelectedListener;
-import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
-    private Spinner mSpinner1;
-    private Spinner mSpinner2;
+    private Spinner keyOfSongSpinner;
+    private Spinner wantedKeySpinner;
+
+    private ImageView keyOfSongImage;
+    private ImageView wantedKeyImage;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button mDoMagicButton = (Button) findViewById(R.id.button);
-        mDoMagicButton.setOnClickListener(buttonClickListener);
+        //init magicButton
+        Button doMagicButton = (Button) findViewById(R.id.button);
+        doMagicButton.setOnClickListener(doMagicButtonClickListener);
 
-        mSpinner1 = (Spinner) findViewById(R.id.keys_spinner_1);
-        mSpinner2 = (Spinner) findViewById(R.id.keys_spinner_2);
+        //init spinners
+        keyOfSongSpinner = (Spinner) findViewById(R.id.keys_spinner_1);
+        wantedKeySpinner = (Spinner) findViewById(R.id.keys_spinner_2);
+
+        //init imageViews
+        keyOfSongImage = (ImageView) findViewById(R.id.key1);
+        wantedKeyImage = (ImageView) findViewById(R.id.key2);
 
         // Spinner Drop down elements with major keys (for now)
         List<String> categories = new ArrayList<String>();
@@ -51,99 +57,94 @@ public class MainActivity extends Activity {
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         // attaching data adapter to spinner
-        mSpinner1.setAdapter(dataAdapter);
-        mSpinner2.setAdapter(dataAdapter);
+        keyOfSongSpinner.setAdapter(dataAdapter);
+        wantedKeySpinner.setAdapter(dataAdapter);
     }
 
-    private View.OnClickListener buttonClickListener = new View.OnClickListener() {
+    private View.OnClickListener doMagicButtonClickListener = new View.OnClickListener() {
         @Override
-        public void onClick(View v) {
-            //init imageviews
-            ImageView img1 = (ImageView) findViewById(R.id.key1);
-            ImageView img2 = (ImageView) findViewById(R.id.key2);
+        public void onClick(View view) {
 
             //get spinners selected values
+            String spinner1Value = keyOfSongSpinner.getSelectedItem().toString();
+            String spinner2Value = wantedKeySpinner.getSelectedItem().toString();
 
-            String spinner1Value = mSpinner1.getSelectedItem().toString();
-            String spinner2Value = mSpinner2.getSelectedItem().toString();
-
-            //show the images acoording to what the user selected
-
+            //show the images according to what the user selected
             switch (spinner1Value) {
                 case "A":
-                    img1.setImageResource(R.drawable.a);
+                    keyOfSongImage.setImageResource(R.drawable.a);
                     break;
                 case "A#":
-                    img1.setImageResource(R.drawable.bb);
+                    keyOfSongImage.setImageResource(R.drawable.bb);
                     break;
                 case "B":
-                    img1.setImageResource(R.drawable.b);
+                    keyOfSongImage.setImageResource(R.drawable.b);
                     break;
                 case "C":
-                    img1.setImageResource(R.drawable.c);
+                    keyOfSongImage.setImageResource(R.drawable.c);
                     break;
                 case "C#":
-                    img1.setImageResource(R.drawable.db);
+                    keyOfSongImage.setImageResource(R.drawable.db);
                     break;
                 case "D":
-                    img1.setImageResource(R.drawable.d);
+                    keyOfSongImage.setImageResource(R.drawable.d);
                     break;
                 case "D#":
-                    img1.setImageResource(R.drawable.eb);
+                    keyOfSongImage.setImageResource(R.drawable.eb);
                     break;
                 case "E":
-                    img1.setImageResource(R.drawable.e);
+                    keyOfSongImage.setImageResource(R.drawable.e);
                     break;
                 case "F":
-                    img1.setImageResource(R.drawable.f);
+                    keyOfSongImage.setImageResource(R.drawable.f);
                     break;
                 case "F#":
-                    img1.setImageResource(R.drawable.f0);
+                    keyOfSongImage.setImageResource(R.drawable.f0);
                     break;
                 case "G":
-                    img1.setImageResource(R.drawable.g);
+                    keyOfSongImage.setImageResource(R.drawable.g);
                     break;
                 case "G#":
-                    img1.setImageResource(R.drawable.ab);
+                    keyOfSongImage.setImageResource(R.drawable.ab);
                     break;
             }
 
             switch (spinner2Value) {
                 case "A":
-                    img2.setImageResource(R.drawable.a);
+                    wantedKeyImage.setImageResource(R.drawable.a);
                     break;
                 case "A#":
-                    img2.setImageResource(R.drawable.bb);
+                    wantedKeyImage.setImageResource(R.drawable.bb);
                     break;
                 case "B":
-                    img2.setImageResource(R.drawable.b);
+                    wantedKeyImage.setImageResource(R.drawable.b);
                     break;
                 case "C":
-                    img2.setImageResource(R.drawable.c);
+                    wantedKeyImage.setImageResource(R.drawable.c);
                     break;
                 case "C#":
-                    img2.setImageResource(R.drawable.db);
+                    wantedKeyImage.setImageResource(R.drawable.db);
                     break;
                 case "D":
-                    img2.setImageResource(R.drawable.d);
+                    wantedKeyImage.setImageResource(R.drawable.d);
                     break;
                 case "D#":
-                    img2.setImageResource(R.drawable.eb);
+                    wantedKeyImage.setImageResource(R.drawable.eb);
                     break;
                 case "E":
-                    img2.setImageResource(R.drawable.e);
+                    wantedKeyImage.setImageResource(R.drawable.e);
                     break;
                 case "F":
-                    img2.setImageResource(R.drawable.f);
+                    wantedKeyImage.setImageResource(R.drawable.f);
                     break;
                 case "F#":
-                    img2.setImageResource(R.drawable.f0);
+                    wantedKeyImage.setImageResource(R.drawable.f0);
                     break;
                 case "G":
-                    img2.setImageResource(R.drawable.g);
+                    wantedKeyImage.setImageResource(R.drawable.g);
                     break;
                 case "G#":
-                    img2.setImageResource(R.drawable.ab);
+                    wantedKeyImage.setImageResource(R.drawable.ab);
                     break;
             }
         }

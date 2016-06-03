@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">MentalCapo</string>
     <string name="action_settings">Settings</string>
+    <string name="text_view1">Key of song: </string>
+    <string name="text_view2">Wanted key: </string>
+    <string name="intro">Just choose 2 keys and MentalCapo will do the rest ;)</string>
+    <string name="button">Magic!</string>
+    <string name="spinner1">Key 1!</string>
+    <string name="spinner2">Key 1!</string>
     <item name="edit_text_hello1" type="id"/>
     <item name="edit_text_hello2" type="id"/>
 </resources>
